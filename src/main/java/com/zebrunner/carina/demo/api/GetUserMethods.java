@@ -31,4 +31,10 @@ public class GetUserMethods extends AbstractApiMethodV2 {
     public GetUserMethods() {
         replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
     }
+    public GetUserMethods(String userId) {
+        super(null, "api/users/_get/rs.json");
+        replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
+        replaceUrlPlaceholder("id", userId); // Replace the dynamic id
+    }
 }
+

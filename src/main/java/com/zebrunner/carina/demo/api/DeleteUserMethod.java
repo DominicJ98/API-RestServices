@@ -30,7 +30,16 @@ import com.zebrunner.carina.utils.config.Configuration;
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class DeleteUserMethod extends AbstractApiMethodV2 {
 
+    // Default constructor for general use
     public DeleteUserMethod() {
+        super(null, null);
         replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
+    }
+
+    // Constructor for deleting a specific user by ID
+    public DeleteUserMethod(String userId) {
+        super(null, null);
+        replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
+        replaceUrlPlaceholder("id", userId);
     }
 }
